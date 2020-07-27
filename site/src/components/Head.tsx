@@ -8,10 +8,7 @@ const Head: React.FC = () => {
   const { siteMetadata, file } = useMeta()
   const { pathname } = useLocation()
   const pageTitle = MenuLInks.find(m => m.page === pathname)?.text
-  const siteTitle = React.useMemo(() => (pageTitle ? `${pageTitle} - ${siteMetadata.title}` : siteMetadata.title), [
-    pageTitle,
-    siteMetadata.title
-  ])
+  const siteTitle = pageTitle ? `${pageTitle} - ${siteMetadata.title}` : siteMetadata.title
   return (
       <Helmet
         title={siteTitle}
