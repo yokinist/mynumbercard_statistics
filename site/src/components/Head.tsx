@@ -11,7 +11,8 @@ const Head: React.FC<Props> = ({ title }) => {
   const { siteMetadata, file } = useMeta()
   const { pathname } = useLocation()
   const siteTitle = React.useMemo(() => (title ? `${title} - ${siteMetadata.title}` : siteMetadata.title), [
-    title
+    title,
+    siteMetadata.title
   ])
   return (
       <Helmet
