@@ -8,25 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Container from './Container'
 import { heights, dimensions, colors } from '../styles/variables'
-
-type LinkType = {
-  page: string
-  text: string
-}
-export const MenuLInks: LinkType[] = [
-  {
-    page: '/data',
-    text: 'データ一覧'
-  },
-  {
-    page: '/chant',
-    text: 'データ供養の方法'
-  },
-  {
-    page: '/about',
-    text: 'このサイトについて'
-  }
-]
+import { MenuLinks } from '../constants'
 
 const StyledHeader = styled.header`
   height: ${heights.header}px;
@@ -74,7 +56,7 @@ const openmenu: React.CSSProperties = {
   position: 'absolute',
   top: '60px',
   right: '-1.5rem',
-  height: `${MenuLInks.length * 54 + 40}px`
+  height: `${MenuLinks.length * 54 + 40}px`
 }
 const openli: React.CSSProperties = {
   float: 'none'
@@ -135,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       <HeaderInner>
         <HomepageLink to="/">{title}</HomepageLink>
         <MenuNav style={isOpen ? openmenu : undefined}>
-          {MenuLInks.map(({ page, text }) => (
+          {MenuLinks.map(({ page, text }) => (
             <MenuLi style={isOpen ? openli : undefined} key={page}>
               <Link to={page} activeStyle={ActiveStyles}>
                 {text}
